@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { RateLimiter } from '$lib/utils/rateLimiter';
-
+	import AdBanner from '$lib/components/AdBanner.svelte';
 	const language = writable('ko');
 	const translations = {
 		ko: {
@@ -263,6 +263,7 @@
 				</div>
 			{/if}
 		</div>
+		<AdBanner adSlot="3010145096"/>
 	</div>
 </main>
 
