@@ -3,7 +3,7 @@
 	import { writable } from 'svelte/store';
 	import { RateLimiter } from '$lib/utils/rateLimiter';
 	import AdBanner from '$lib/components/AdBanner.svelte';
-	const language = writable('ko');
+	const language = writable('en');
 	const translations = {
 		ko: {
 			title: '해시태그 검색기',
@@ -16,7 +16,18 @@
 			relatedHashtags: '관련 해시태그:',
 			copyHashtags: '해시태그 복사',
 			copySuccess: '복사 완료!',
-			logo: 'TagTally'
+			logo: 'TagTally',
+			infoTitle: '해시태그 검색 및 생성기',
+			infoSubtitle:
+				'어떤 해시태그를 사용해야 할지 모르겠나요? Tagtally를 통해 키워드의 인기를 파악하고 키워드와 관련된 최고의 해시태그를 추천받을 수 있습니다.',
+			features: [
+				'인기 해시태그로 더 많은 관심을 끌어보세요',
+				'키워드 인기를 한눈에 파악하고 최적의 해시태그를 찾아보세요',
+				'Tagtally로 더 많은 팔로워에게 도달하세요',
+				'해시태그 추천으로 간단하게 콘텐츠 노출을 늘리세요',
+				'키워드 하나로 다양한 해시태그 추천을 받아보세요',
+				'쉽고 빠르게, 인기 해시태그로 트렌드를 잡아보세요'
+			]
 		},
 		en: {
 			title: 'Hashtag Searcher',
@@ -29,17 +40,250 @@
 			relatedHashtags: 'Related Hashtags:',
 			copyHashtags: 'Copy Hashtags',
 			copySuccess: 'Copy Success!',
-			logo: 'TagTally'
+			logo: 'TagTally',
+			infoTitle: 'Hashtag Search and Generator',
+			infoSubtitle:
+				'Not sure which hashtags to use? With Tagtally, you can understand keyword popularity and get recommendations for the best hashtags related to your keywords.',
+			features: [
+				'Attract more attention with popular hashtags',
+				'Analyze keyword popularity and find optimal hashtags at a glance',
+				'Reach more followers with Tagtally',
+				'Increase content exposure easily with hashtag recommendations',
+				'Get various hashtag recommendations from a single keyword',
+				'Catch trends quickly and easily with popular hashtags'
+			]
+		},
+		es: {
+			title: 'Buscador de Hashtags',
+			placeholder: 'Introducir hashtag...',
+			search: 'Buscar',
+			error: 'Error:',
+			fetchError: 'Demasiadas solicitudes. Por favor, inténtelo más tarde.',
+			debugInfo: 'Información de Depuración',
+			postCount: 'Número de Publicaciones:',
+			relatedHashtags: 'Hashtags Relacionados:',
+			copyHashtags: 'Copiar Hashtags',
+			copySuccess: '¡Copiado con Éxito!',
+			logo: 'TagTally',
+			infoTitle: 'Buscador y Generador de Hashtags',
+			infoSubtitle:
+				'¿No estás seguro de qué hashtags usar? Con Tagtally, puedes entender la popularidad de las palabras clave y obtener recomendaciones de los mejores hashtags relacionados.',
+			features: [
+				'Atrae más atención con hashtags populares',
+				'Analiza la popularidad de palabras clave y encuentra hashtags óptimos de un vistazo',
+				'Llega a más seguidores con Tagtally',
+				'Aumenta la exposición de contenido fácilmente con recomendaciones de hashtags',
+				'Obtén varias recomendaciones de hashtags de una sola palabra clave',
+				'Captura tendencias rápida y fácilmente con hashtags populares'
+			]
+		},
+		pt: {
+			title: 'Pesquisador de Hashtags',
+			placeholder: 'Digite a hashtag...',
+			search: 'Pesquisar',
+			error: 'Erro:',
+			fetchError: 'Muitas solicitações. Tente novamente mais tarde.',
+			debugInfo: 'Informações de Depuração',
+			postCount: 'Contagem de Posts:',
+			relatedHashtags: 'Hashtags Relacionadas:',
+			copyHashtags: 'Copiar Hashtags',
+			copySuccess: 'Copiado com Sucesso!',
+			logo: 'TagTally',
+			infoTitle: 'Pesquisador e Gerador de Hashtags',
+			infoSubtitle:
+				'Não sabe quais hashtags usar? Com o Tagtally, você pode entender a popularidade das palavras-chave e obter recomendações das melhores hashtags relacionadas.',
+			features: [
+				'Atraia mais atenção com hashtags populares',
+				'Analise a popularidade das palavras-chave e encontre hashtags ideais rapidamente',
+				'Alcance mais seguidores com o Tagtally',
+				'Aumente a exposição do conteúdo facilmente com recomendações de hashtags',
+				'Obtenha várias recomendações de hashtags a partir de uma única palavra-chave',
+				'Capture tendências de forma rápida e fácil com hashtags populares'
+			]
+		},
+		hi: {
+			title: 'हैशटैग खोजक',
+			placeholder: 'हैशटैग दर्ज करें...',
+			search: 'खोजें',
+			error: 'त्रुटि:',
+			fetchError: 'बहुत अधिक अनुरोध। कृपया बाद में पुनः प्रयास करें।',
+			debugInfo: 'डीबग जानकारी',
+			postCount: 'पोस्ट की संख्या:',
+			relatedHashtags: 'संबंधित हैशटैग:',
+			copyHashtags: 'हैशटैग कॉपी करें',
+			copySuccess: 'कॉपी सफल!',
+			logo: 'TagTally',
+			infoTitle: 'हैशटैग खोज और जनरेटर',
+			infoSubtitle:
+				'कौन से हैशटैग का उपयोग करना है, यह नहीं पता? Tagtally के साथ, आप कीवर्ड की लोकप्रियता को समझ सकते हैं और अपने कीवर्ड से संबंधित सर्वश्रेष्ठ हैशटैग की सिफारिशें प्राप्त कर सकते हैं।',
+			features: [
+				'लोकप्रिय हैशटैग के साथ अधिक ध्यान आकर्षित करें',
+				'कीवर्ड की लोकप्रियता का विश्लेषण करें और एक नज़र में सर्वोत्तम हैशटैग खोजें',
+				'Tagtally के साथ अधिक फॉलोअर्स तक पहुंचें',
+				'हैशटैग सुझावों के साथ आसानी से कंटेंट एक्सपोजर बढ़ाएं',
+				'एक कीवर्ड से विभिन्न हैशटैग सुझाव प्राप्त करें',
+				'लोकप्रिय हैशटैग के साथ आसानी और तेज़ी से ट्रेंड को पकड़ें'
+			]
+		},
+		ar: {
+			title: 'باحث الهاشتاج',
+			placeholder: 'أدخل الهاشتاج...',
+			search: 'بحث',
+			error: 'خطأ:',
+			fetchError: 'طلبات كثيرة جداً. يرجى المحاولة لاحقاً.',
+			debugInfo: 'معلومات التصحيح',
+			postCount: 'عدد المنشورات:',
+			relatedHashtags: 'الهاشتاجات ذات الصلة:',
+			copyHashtags: 'نسخ الهاشتاجات',
+			copySuccess: 'تم النسخ بنجاح!',
+			logo: 'TagTally',
+			infoTitle: 'باحث ومولد الهاشتاج',
+			infoSubtitle:
+				'غير متأكد من الهاشتاج الذي تريد استخدامه؟ مع Tagtally، يمكنك فهم شعبية الكلمات المفتاحية والحصول على توصيات لأفضل الهاشتاجات المرتبطة.',
+			features: [
+				'اجذب المزيد من الاهتمام مع الهاشتاجات الشائعة',
+				'حلل شعبية الكلمات المفتاحية واعثر على الهاشتاجات المثالية بلمحة',
+				'اصل إلى المزيد من المتابعين مع Tagtally',
+				'زد من ظهور المحتوى بسهولة مع توصيات الهاشتاج',
+				'احصل على توصيات هاشتاج متنوعة من كلمة مفتاحية واحدة',
+				'اكتشف الاتجاهات بسرعة وسهولة مع الهاشتاجات الشائعة'
+			]
+		},
+		id: {
+			title: 'Pencari Tagar',
+			placeholder: 'Masukkan tagar...',
+			search: 'Cari',
+			error: 'Kesalahan:',
+			fetchError: 'Terlalu banyak permintaan. Silakan coba lagi nanti.',
+			debugInfo: 'Info Debug',
+			postCount: 'Jumlah Posting:',
+			relatedHashtags: 'Tagar Terkait:',
+			copyHashtags: 'Salin Tagar',
+			copySuccess: 'Berhasil Disalin!',
+			logo: 'TagTally',
+			infoTitle: 'Pencari dan Generator Tagar',
+			infoSubtitle:
+				'Tidak yakin tagar mana yang harus digunakan? Dengan Tagtally, Anda dapat memahami popularitas kata kunci dan mendapatkan rekomendasi tagar terbaik yang terkait.',
+			features: [
+				'Tarik lebih banyak perhatian dengan tagar populer',
+				'Analisis popularitas kata kunci dan temukan tagar optimal secara sekilas',
+				'Jangkau lebih banyak pengikut dengan Tagtally',
+				'Tingkatkan eksposur konten dengan mudah menggunakan rekomendasi tagar',
+				'Dapatkan berbagai rekomendasi tagar dari satu kata kunci',
+				'Tangkap tren dengan cepat dan mudah menggunakan tagar populer'
+			]
+		},
+		tr: {
+			title: 'Hashtag Arayıcı',
+			placeholder: 'Hashtag girin...',
+			search: 'Ara',
+			error: 'Hata:',
+			fetchError: 'Çok fazla istek. Lütfen daha sonra tekrar deneyin.',
+			debugInfo: 'Hata Ayıklama Bilgisi',
+			postCount: 'Gönderi Sayısı:',
+			relatedHashtags: 'İlgili Hashtagler:',
+			copyHashtags: 'Hashtagleri Kopyala',
+			copySuccess: 'Kopyalama Başarılı!',
+			logo: 'TagTally',
+			infoTitle: 'Hashtag Arama ve Oluşturucu',
+			infoSubtitle:
+				'Hangi hashtagleri kullanacağınızdan emin değil misiniz? Tagtally ile anahtar kelimelerin popülerliğini anlayabilir ve ilgili en iyi hashtag önerilerini alabilirsiniz.',
+			features: [
+				'Popüler hashtagler ile daha fazla dikkat çekin',
+				'Anahtar kelime popülerliğini analiz edin ve optimal hashtagleri bir bakışta bulun',
+				'Tagtally ile daha fazla takipçiye ulaşın',
+				'Hashtag önerileri ile içerik görünürlüğünü kolayca artırın',
+				'Tek bir anahtar kelimeden çeşitli hashtag önerileri alın',
+				'Popüler hashtagler ile trendleri hızlı ve kolay yakalayın'
+			]
+		},
+		ru: {
+			title: 'Поисковик Хэштегов',
+			placeholder: 'Введите хэштег...',
+			search: 'Поиск',
+			error: 'Ошибка:',
+			fetchError: 'Слишком много запросов. Пожалуйста, повторите попытку позже.',
+			debugInfo: 'Отладочная Информация',
+			postCount: 'Количество Постов:',
+			relatedHashtags: 'Связанные Хэштеги:',
+			copyHashtags: 'Копировать Хэштеги',
+			copySuccess: 'Скопировано Успешно!',
+			logo: 'TagTally',
+			infoTitle: 'Поиск и Генератор Хэштегов',
+			infoSubtitle:
+				'Не уверены, какие хэштеги использовать? С Tagtally вы можете понять популярность ключевых слов и получить рекомендации лучших связанных хэштегов.',
+			features: [
+				'Привлекайте больше внимания с популярными хэштегами',
+				'Анализируйте популярность ключевых слов и находите оптимальные хэштеги',
+				'Достигайте большего числа подписчиков с Tagtally',
+				'Легко увеличивайте охват контента с рекомендациями хэштегов',
+				'Получайте различные рекомендации хэштегов из одного ключевого слова',
+				'Быстро и легко следуйте трендам с популярными хэштегами'
+			]
+		},
+		fr: {
+			title: 'Recherche de Hashtags',
+			placeholder: 'Entrez le hashtag...',
+			search: 'Rechercher',
+			error: 'Erreur:',
+			fetchError: 'Trop de requêtes. Veuillez réessayer plus tard.',
+			debugInfo: 'Informations de Débogage',
+			postCount: 'Nombre de Publications:',
+			relatedHashtags: 'Hashtags Associés:',
+			copyHashtags: 'Copier les Hashtags',
+			copySuccess: 'Copié avec Succès!',
+			logo: 'TagTally',
+			infoTitle: 'Recherche et Générateur de Hashtags',
+			infoSubtitle:
+				'Vous ne savez pas quels hashtags utiliser ? Avec Tagtally, vous pouvez comprendre la popularité des mots-clés et obtenir des recommandations pour les meilleurs hashtags associés.',
+			features: [
+				"Attirez plus d'attention avec des hashtags populaires",
+				"Analysez la popularité des mots-clés et trouvez les hashtags optimaux en un coup d'œil",
+				'Atteignez plus de followers avec Tagtally',
+				"Augmentez facilement l'exposition de votre contenu avec des recommandations de hashtags",
+				"Obtenez diverses recommandations de hashtags à partir d'un seul mot-clé",
+				'Captez les tendances rapidement et facilement avec des hashtags populaires'
+			]
+		},
+		ja: {
+			title: 'ハッシュタグ検索',
+			placeholder: 'ハッシュタグを入力...',
+			search: '検索',
+			error: 'エラー:',
+			fetchError: 'リクエストが多すぎます。後でもう一度お試しください。',
+			debugInfo: 'デバッグ情報',
+			postCount: '投稿数:',
+			relatedHashtags: '関連ハッシュタグ:',
+			copyHashtags: 'ハッシュタグをコピー',
+			copySuccess: 'コピー成功！',
+			logo: 'TagTally',
+			infoTitle: 'ハッシュタグ検索・ジェネレーター',
+			infoSubtitle:
+				'どのハッシュタグを使用すべきか迷っていますか？Tagtallyで、キーワードの人気度を理解し、関連する最適なハッシュタグのレコメンドを取得できます。',
+			features: [
+				'人気のハッシュタグでより多くの注目を集める',
+				'キーワードの人気度を分析し、最適なハッシュタグを一目で見つける',
+				'Tagtallyでより多くのフォロワーにリーチする',
+				'ハッシュタグのレコメンドで簡単にコンテンツの露出を増やす',
+				'1つのキーワードから様々なハッシュタグのレコメンドを取得',
+				'人気のハッシュタグで素早く簡単にトレンドをキャッチする'
+			]
 		}
-		// ... 다른 언어에 대한 번역
 	};
 
 	const languageList = [
+		{ code: 'en', name: 'English' },
+		{ code: 'es', name: 'Español' },
+		{ code: 'pt', name: 'Português' },
+		{ code: 'id', name: 'Bahasa Indonesia' },
+		{ code: 'ar', name: 'العربية' },
+		{ code: 'hi', name: 'हिन्दी' },
+		{ code: 'tr', name: 'Türkçe' },
+		{ code: 'ja', name: '日本語' },
 		{ code: 'ko', name: '한국어' },
-		{ code: 'en', name: 'English' }
-		// ... 다른 언어 목록
+		{ code: 'fr', name: 'Français' },
+		{ code: 'ru', name: 'Русский' }
 	];
-
 	let query = '';
 	let loading = false;
 	let errorKey = null;
@@ -87,9 +331,8 @@
 				errorKey = 'fetchError';
 				return;
 			}
-
 			const response = await fetch(
-				`${apiUrl}/api/search?query=${encodeURIComponent(query.replace('#', ''))}&debugMode=${debugMode}`
+				`/api/search?query=${encodeURIComponent(query.replace('#', ''))}&debugMode=${debugMode}`
 			);
 
 			if (!response.ok) {
@@ -108,7 +351,6 @@
 				relatedHashtags,
 				remainingRequests
 			});
-
 		} catch (err) {
 			console.error('Search failed:', err);
 			errorKey = 'fetchError';
@@ -119,7 +361,6 @@
 			}, 3000);
 		}
 	}
-
 
 	function startCooldown() {
 		buttonDisabled = true;
@@ -184,7 +425,6 @@
 		const limitState = rateLimiter.loadState();
 		remainingRequests = limitState.remainingRequests;
 	});
-
 
 	$: errorMessage = errorKey ? translations[currentLang][errorKey] : null;
 </script>
@@ -263,8 +503,32 @@
 				</div>
 			{/if}
 		</div>
-		<AdBanner adSlot="3010145096"/>
 	</div>
+	<AdBanner adSlot="3010145096" format="auto" responsive={true} />
+	<div class="info-section">
+		<div class="info-wrapper">
+			<div class="main-title">
+				<h2>{translations[currentLang].infoTitle}</h2>
+				<p class="subtitle">
+					{translations[currentLang].infoSubtitle}
+				</p>
+			</div>
+
+			<div class="features-grid">
+				{#each translations[currentLang].features as feature}
+					<div class="feature-card">
+						<p>{feature}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+
+	<footer class="app-footer">
+		<div class="footer-container">
+			<div class="footer-content">© 2024 TagTally</div>
+		</div>
+	</footer>
 </main>
 
 <style>
@@ -323,6 +587,7 @@
 	}
 
 	.app-bar {
+		min-width: 500px;
 		background: linear-gradient(
 			45deg,
 			#405de6,
@@ -365,23 +630,25 @@
 	}
 
 	.content {
-		flex-grow: 1;
+		flex-grow: 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 40px 20px; /* 증가된 패딩 */
+		padding-top: 60px;
+		padding-bottom: 30px;
 		box-sizing: border-box;
 	}
 
 	.search-wrapper {
 		width: 100%;
-		max-width: 700px; /* 증가된 최대 너비 */
-		min-height: 200px;
+		max-width: 750px; /* 증가된 최대 너비 */
+		min-width: 500px;
+		min-height: 300px;
 		background-color: #ffffff;
-		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-		padding: 40px; /* 증가된 패딩 */
+		border-radius: 50px;
+		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+		padding: 50px; /* 증가된 패딩 */
 		box-sizing: border-box;
 	}
 
@@ -390,13 +657,13 @@
 		text-align: center;
 		color: rgb(34, 84, 131);
 		margin-bottom: 40px; /**/
-		font-size: 40px; /* 증가된 폰트 크기 */
+		font-size: 50px; /* 증가된 폰트 크기 */
 		font-weight: 500;
 	}
 
 	.search-container {
 		display: flex;
-		margin-bottom: 40px; /* */
+		margin-bottom: 20px; /* */
 	}
 
 	.input-wrapper {
@@ -522,11 +789,13 @@
 		/* 브레이크포인트를 768px로 변경 */
 		.search-wrapper {
 			padding: 25px;
-			max-width: 100%;
+			max-width: 95%;
+			min-width: 300px;
+			min-height: 300px;
 		}
 
 		h1 {
-			font-size: 35px;
+			font-size: 41px;
 		}
 
 		.search-container {
@@ -643,6 +912,152 @@
 		.search-button:disabled {
 			background-color: #b2dffc;
 			cursor: not-allowed;
+		}
+	}
+
+	.info-section {
+		width: 100%;
+		background-color: #fafafa;
+		padding: 60px 0;
+		padding-top: 30px;
+		margin-top: 40px;
+		border-top: 1px solid #e6e6e6;
+	}
+
+	.info-wrapper {
+		width: 100%;
+		max-width: 1000px;
+		min-width: 700px;
+		margin: 0 auto;
+		padding: 0 50px;
+		box-sizing: border-box;
+	}
+
+	.main-title {
+		text-align: center;
+		margin-bottom: 50px;
+		background: white;
+		padding: 30px;
+		padding-top: 10px;
+		border-radius: 30px;
+		color: #262626;
+		border: 1px solid #f0f0f0;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	}
+
+	.main-title h2 {
+		font-size: 36px;
+		font-weight: 600;
+		margin-bottom: 20px;
+		background: linear-gradient(45deg, #405de6, #833ab4);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.subtitle {
+		font-size: 18px;
+		line-height: 1.6;
+		max-width: 800px;
+		margin: 0 auto;
+		color: #666;
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 25px;
+		margin-top: 40px;
+	}
+
+	.feature-card {
+		background: white;
+		padding: 30px;
+		border-radius: 10px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		min-height: 60px;
+		border: 1px solid #f0f0f0;
+	}
+
+	.feature-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 8px;
+		height: 100%;
+		background: linear-gradient(to bottom, #833ab4, #c13584);
+	}
+
+	.feature-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.feature-card p {
+		color: #444;
+		font-size: 17px;
+		font-weight: 500;
+		line-height: 1.4;
+		margin: 0;
+		padding-left: 15px;
+	}
+
+	.app-footer {
+		background-color: #ffffff;
+		border-top: 1px solid #dbdbdb;
+		padding: 20px 0;
+		margin-top: 40px;
+	}
+
+	.footer-container {
+		max-width: 1000px;
+		min-width: 700px;
+		margin: 0 auto;
+		padding: 0 50px;
+	}
+
+	.footer-content {
+		color: #8e8e8e;
+		font-size: 14px;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.info-wrapper {
+			min-width: 300px;
+			padding: 0 25px;
+		}
+
+		.main-title {
+			padding: 30px 20px;
+		}
+
+		.main-title h2 {
+			font-size: 28px;
+		}
+
+		.subtitle {
+			font-size: 16px;
+		}
+
+		.features-grid {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+
+		.feature-card {
+			padding: 25px;
+		}
+
+		.footer-container {
+			min-width: 300px;
+			padding: 0 25px;
 		}
 	}
 </style>

@@ -1,0 +1,6 @@
+name = "tagtally"
+compatibility_date = "2024-10-29"
+
+kv_namespaces = [
+  { binding = "HASHTAG_CACHE", id = "8a94eb0c5262454dba19ddb542a5a4b3" }  # Cloudflare 대시보드에서 얻은 ID로 교체
+]
