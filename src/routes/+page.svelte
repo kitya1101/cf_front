@@ -294,7 +294,7 @@
 	let currentLang;
 	let buttonDisabled = false;
 	let cooldownTimer = 0;
-	const debugMode = true;
+	const debugMode = false;
 	let remainingRequests = 2; // 추가: 남은 요청 수 변수
 
 	const rateLimiter = new RateLimiter(2, 3600000, debugMode);
